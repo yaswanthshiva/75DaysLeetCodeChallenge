@@ -1,37 +1,24 @@
 class Solution {
     public int searchInsert(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length -1;
-        while(low<=high)
+        int l = 0;
+        int h = nums.length -1;
+        while(l<=h)
         {
-            int mid = low + (high-low)/2;
-            if(nums[mid] == target)
+            int m = l + (h-l)/2;
+            if(nums[m] == target)
             {
-                return mid;
+                return m;
             }
-            else if(nums[mid]<target)
+            else if(nums[m]<target)
             {
-                low = mid+1;
+                l = m+1;
             }
-            else if(nums[mid]>target)
+            else if(nums[m]>target)
             {
-                high = mid-1;
+                h = m-1;
             }
         }
-        return low;
+        return l;
     }   
-        public static void main(String[] args)
-        {
-            Scanner sc = new Scanner(System.in);
-            int n = sc.nextInt();
-            int[] nums = new int[n];
-            for(int i =0;i<n;i++)
-            {
-                nums[i] = sc.nextInt();
-            }
-            int target = sc.nextInt();
-            Solution s = new Solution();
-            System.out.println(s.searchInsert(nums,target));
-        }
 
 }
